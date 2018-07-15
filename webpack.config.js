@@ -10,6 +10,12 @@ module.exports = {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, './dist')
     },
+    devServer: {
+        port: 3042,
+        historyApiFallback: true,
+        overlay: true,
+        open: true,
+    },
     module: {
         rules: [
             {
