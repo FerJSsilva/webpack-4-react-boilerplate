@@ -7,7 +7,7 @@
   "author": "Fernando <development.ferjssilva@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode=development",
+    "start": "webpack-dev-server --mode=development --hot",
     "test": "jest"
   },
   "dependencies": {
