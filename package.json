@@ -6,6 +6,9 @@
   "repository": "https://github.com/FerJSsilva/webpack-4-react-boilerplate.git",
   "author": "Fernando <development.ferjssilva@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
@@ -15,6 +18,13 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.4.1",
+    "react-test-renderer": "^16.4.1"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   }
 }
