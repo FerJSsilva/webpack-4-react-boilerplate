@@ -1,0 +1,9 @@
+{
+  "name": "webpack-4-react-boilerplate",
+  "version": "1.0.0",
+  "description": "A simple and complete Webpack 4 React Boilerplate",
+  "main": "index.js",
+  "repository": "https://github.com/FerJSsilva/webpack-4-react-boilerplate.git",
+  "author": "Fernando <development.ferjssilva@gmail.com>",
+  "license": "MIT"
+}
