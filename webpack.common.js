@@ -7,7 +7,8 @@ module.exports = {
     },
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
+        publicPath: "/"
     },
     devServer: {
         port: 3042,
@@ -25,18 +26,41 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                  { loader: "style-loader" },
-                  { loader: "css-loader" }
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
                 ]
-              },
+            },
             {
                 test: /\.s(a|c)ss$/,
                 use: [
-                  { loader: "style-loader" },
-                  { loader: "css-loader" },
-                  { loader: "sass-loader" }
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" }
                 ]
-              },
+            },
+            {
+                test: /.*\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name]_[hash:7].[ext]',
+                        }
+                    },
+                ]
+            },
+            {
+                test: /.*\.(gif|png|jp(e*)g)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            name: "images/[name].[ext]"
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [
