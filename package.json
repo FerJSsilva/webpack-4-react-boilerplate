@@ -7,8 +7,8 @@
   "author": "Fernando <development.ferjssilva@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config=webpack.dev.js --hot",
-    "build": "webpack --config=webpack.prod.js",
+    "start": "webpack-dev-server --config=config/webpack.dev.js --hot",
+    "build": "webpack --config=config/webpack.prod.js",
     "test": "jest"
   },
   "dependencies": {
