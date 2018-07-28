@@ -10,4 +10,23 @@ module.exports = merge (common, {
         open: true,
         noInfo: true
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" }
+                ]
+            },
+        ]
+    },
 });
