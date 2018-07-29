@@ -9,7 +9,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const enableBundleAnalyzer = process.env.ENABLE_ANALYZER === 'true';
 
-module.exports = merge (common, {
+module.exports = merge(common, {
     mode: 'production',
     devtool: 'source-map',
     module: {
@@ -31,21 +31,27 @@ module.exports = merge (common, {
             },
         ]
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+        runtimeChunk: false,
+    },
     plugins: [
         new CleanWebpackPlugin([path.resolve(__dirname, '../dist')], {
             root: process.cwd(),
-            verbose: true, 
+            verbose: true,
             dry: false
         }),
         new OptimizeCssAssetsPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].[hash:8].css",
             chunkFilename: "[id].[hash:8].css"
-          }),
+        }),
         new ManifestPlugin(),
         new BundleAnalyzerPlugin({
             analyzerMode: enableBundleAnalyzer === true ? 'static' : 'disabled',
             openAnalyzer: true,
-          }),
+        }),
     ],
 });
