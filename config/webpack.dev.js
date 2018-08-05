@@ -25,8 +25,8 @@ module.exports = merge (common, {
                 test: /\.s(a|c)ss$/,
                 use: [
                     { loader: "style-loader" },
-                    { loader: "css-loader?sourceMap" },
-                    { loader: "sass-loader?sourceMap" }
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" }
                 ]
             },
         ]
