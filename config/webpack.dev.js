@@ -2,6 +2,8 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const mapStyle = process.env.MAP_STYLE === 'true';
+
 module.exports = merge (common, {
     mode: 'development',
     devtool: 'inline-source-map',
@@ -18,7 +20,7 @@ module.exports = merge (common, {
                 test: /\.css$/,
                 use: [
                     { loader: "style-loader" },
-                    { loader: "css-loader?sourceMap" }
+                    { loader: mapStyle ? "css-loader?sourceMap" : "css-loader" }
                 ]
             },
             {
@@ -33,7 +35,7 @@ module.exports = merge (common, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].[hash:8].css",
+            filename: "[name].css",
         }),
     ],
 });

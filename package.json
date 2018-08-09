@@ -9,12 +9,14 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js --hot",
     "start:reload": "webpack-dev-server --config=config/webpack.dev.js",
+    "start:style": "cross-env MAP_STYLE=true webpack-dev-server --config=config/webpack.dev.js --hot",
     "build": "webpack --config=config/webpack.prod.js",
     "analyze": "cross-env ENABLE_ANALYZER=true yarn build",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
@@ -49,7 +51,9 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/config/setupTests.js",
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|css)$": "<rootDir>/src/utils/empty-module.js"
     }
