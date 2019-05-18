@@ -24,27 +24,26 @@ module.exports = {
                 use: [{ loader: "babel-loader" }]
             },
             {
-                test: /.*\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'images/[name]_[hash:7].[ext]',
-                        }
-                    },
-                ]
-            },
-            {
-                test: /.*\.(gif|png|jp(e*)g)$/i,
+                test: /.*\.(gif|png|jp(e*)g|svg)$/i,
                 use: [
                     {
                         loader: "url-loader",
                         options: {
-                            limit: 10000,
-                            name: "images/[name].[ext]"
+                            limit: 21000,
+                            name: "images/[name]_[hash:7].[ext]"
                         }
                     }
                 ]
+            },
+            // Vendor CSS loader
+            // This is necessary to pack third party libraries like antd
+            {
+                test: /\.css$/,
+                include: path.resolve(__dirname, '../node_modules'),
+                use: [
+                'style-loader',
+                'css-loader'
+                ],
             },
         ]
     },
