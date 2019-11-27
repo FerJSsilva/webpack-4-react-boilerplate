@@ -38,7 +38,7 @@ module.exports = merge(common, {
         runtimeChunk: false,
     },
     plugins: [
-        new CleanWebpackPlugin([path.resolve(__dirname, '../dist')], {
+        new CleanWebpackPlugin([path.resolve(__dirname, '../build')], {
             root: process.cwd(),
             verbose: true,
             dry: false
